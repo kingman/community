@@ -92,6 +92,10 @@ from laravel.com.
     `bootstrap/cache/services.php`.
 
         composer remove --dev beyondcode/laravel-dump-server
+        
+    If you're using Laravel 6, remove `facade/ignition` instead:
+    
+        composer remove --dev facade/ignition
 
 1.  Run the following command to deploy your app:
 
@@ -161,7 +165,10 @@ Laravel, you need to manually add the `DB_SOCKET` value to
           DB_DATABASE: YOUR_DB_DATABASE
           DB_USERNAME: YOUR_DB_USERNAME
           DB_PASSWORD: YOUR_DB_PASSWORD
+          ## for MYSQL, use DB_SOCKET:
           DB_SOCKET: "/cloudsql/YOUR_CONNECTION_NAME"
+          ## for PostgreSQL, use DB_HOST:
+          # DB_HOST: "/cloudsql/YOUR_CONNECTION_NAME"
 
 1.  Replace `YOUR_DB_DATABASE`, `YOUR_DB_USERNAME`, `YOUR_DB_PASSWORD`,
     and `YOUR_CONNECTION_NAME` with the values you created for your Cloud SQL
